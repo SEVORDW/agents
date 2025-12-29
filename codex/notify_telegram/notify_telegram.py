@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # /// script
 # requires-python = ">=3.10"
-# dependencies = ["requests", "markdown-it-py", "sulguk"]
+# dependencies = ["requests", "markdown-it-py", "sulguk>=0.11.1"]
 # ///
 import json
 import re
@@ -33,20 +33,12 @@ def main() -> None:
 
     text = re.sub(r"(?m)^(\s*)•", r"\1-", rendered.text)
 
-    # FIX: Telegram requires MessageEntity.language (if present) to be a String.
-    entities = []
-    for e in rendered.entities:
-        d = dict(e)
-        if "language" in d and not isinstance(d["language"], str):
-            d.pop("language", None)
-        entities.append(d)
-
     r = requests.post(
         f"https://api.telegram.org/bot{bot_token}/sendMessage",
         json={
             "chat_id": chat_id,
             "text": text,
-            "entities": entities,
+            "entities": rendered.entities,
             "disable_web_page_preview": True,
         },
         timeout=15,
