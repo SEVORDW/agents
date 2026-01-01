@@ -27,7 +27,7 @@ def main() -> None:
     md = event["last-assistant-message"].rstrip()
     thread_id = event.get("thread-id")
     if thread_id:
-        md += f"\n\nthread: `{thread_id}`"
+        md += f"\n\n`codex resume {thread_id}`"
 
     html = MarkdownIt("commonmark", {"html": False}).render(md)
     rendered = transform_html(html)
