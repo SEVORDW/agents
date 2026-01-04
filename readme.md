@@ -56,6 +56,14 @@ worktree-path = ".worktrees/{{ branch }}"
 - `wt remove` — remove worktree and prune branch
 - `wt select` — interactive switcher showing all worktrees and diff from master
 
+###  relative worktrees
+
+by default, git stores absolute paths in worktree metadata. this breaks if you use devcontainer. git 2.48+ added relative path support.
+
+enable with `git config --global worktree.useRelativePaths true`
+
+new worktrees will use relative paths in all repos. to migrate existing worktrees to relative paths `git worktree repair`
+
 ## devcontainer
 
 running agents unattended (yolo mode) is best done in a devcontainer. it provides isolation and lets you skip permission prompts.
