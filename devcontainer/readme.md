@@ -1,28 +1,39 @@
-# Devcontainer template (Claude Code + Codex)
+# devcontainer template
 
-This template is based on Anthropic's Claude Code devcontainer, but modified to:
+a devcontainer for running claude code and codex in yolo mode.
 
-- install **Codex CLI** (`codex`)
-- install **tmux**
-- enable **passwordless sudo** for the `node` user
-- **remove firewall** scripts/capabilities (internet access is enabled by default)
+based on anthropic's claude code devcontainer, modified to install codex and tmux, enable passwordless sudo, and remove firewall restrictions.
 
-## Use in a repo
+## use
 
-Copy `.devcontainer/` to the root of the repo you want to work in:
+copy the contents to `.devcontainer/` in your repo.
 
-```bash
-cp -r path/to/this-template/.devcontainer ./  # from your repo root
+```sh
+cp -r devcontainer path/to/repo/.devcontainer
 ```
 
-Then open in VS Code and run **Dev Containers: Reopen in Container**.
+### vscode
 
-## Quick commands inside the container
+open in vscode and run "reopen in container".
 
-```bash
+```sh
 claude --dangerously-skip-permissions
 codex --yolo --search
-tmux new -s agent
 ```
 
-Tip: Codex stores config in `~/.codex/` and Claude in `~/.claude/` — this template mounts both as Docker volumes so auth persists across rebuilds.
+### cli
+
+you can also run devcontainers from the terminal using the [devcontainer cli](https://github.com/devcontainers/cli).
+
+```sh
+npm install -g @devcontainers/cli
+devcontainer up --workspace-folder .
+devcontainer exec --workspace-folder . tmux new -s agent
+# inside:
+claude --dangerously-skip-permissions
+codex --yolo --search
+# reattach with:
+devcontainer exec --workspace-folder . tmux attach -t agent
+```
+
+auth is persisted across rebuilds — `~/.codex/` and `~/.claude/` are mounted as docker volumes.

@@ -39,9 +39,10 @@
   },
   "remoteUser": "node",
   "mounts": [
-    "source=agents-bashhistory-${devcontainerId},target=/commandhistory,type=volume",
-    "source=agents-claude-config-${devcontainerId},target=/home/node/.claude,type=volume",
-    "source=agents-codex-config-${devcontainerId},target=/home/node/.codex,type=volume"
+    "source=agents-commandhistory-${localEnv:USER},target=/commandhistory,type=volume",
+    "source=agents-claude-config-${localEnv:USER},target=/home/node/.claude,type=volume",
+    "source=agents-codex-config-${localEnv:USER},target=/home/node/.codex,type=volume",
+    "source=agents-gh-config-${localEnv:USER},target=/home/node/.config/gh,type=volume"
   ],
   "containerEnv": {
     "NODE_OPTIONS": "--max-old-space-size=4096",
