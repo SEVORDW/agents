@@ -87,9 +87,13 @@ RUN sh -c "$(wget -qO- https://github.com/deluan/zsh-in-docker/releases/download
     -a "export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
     -x
 
-# Install Claude Code + Codex CLI
+# Install Claude Code + Codex CLI + pnpm
 RUN npm install -g "@anthropic-ai/claude-code@${CLAUDE_CODE_VERSION}" \
-  && npm install -g "@openai/codex@${CODEX_VERSION}"
+  && npm install -g "@openai/codex@${CODEX_VERSION}" \
+  && npm install -g pnpm
+
+# Install uv
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Passwordless sudo for the non-root user (for unattended / automation workflows).
 USER root
