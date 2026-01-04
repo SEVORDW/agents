@@ -1,22 +1,19 @@
 {
   "name": "Agents Sandbox",
+  "init": true,
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
-      "TZ": "${localEnv:TZ}",
+      "TZ": "${localEnv:TZ:UTC}",
       "CLAUDE_CODE_VERSION": "latest",
-      "CODEX_VERSION": "latest",
-      "GIT_DELTA_VERSION": "0.18.2",
-      "ZSH_IN_DOCKER_VERSION": "1.2.0"
+      "CODEX_VERSION": "latest"
     }
   },
   "customizations": {
     "vscode": {
       "extensions": [
         "anthropic.claude-code",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "eamodio.gitlens"
+        "openai.chatgpt"
       ],
       "settings": {
         "editor.formatOnSave": true,
@@ -24,11 +21,14 @@
         "editor.codeActionsOnSave": {
           "source.fixAll.eslint": "explicit"
         },
-        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.defaultProfile.linux": "fish",
         "terminal.integrated.profiles.linux": {
           "bash": {
             "path": "bash",
             "icon": "terminal-bash"
+          },
+          "fish": {
+            "path": "fish"
           },
           "zsh": {
             "path": "zsh"
@@ -38,6 +38,7 @@
     }
   },
   "remoteUser": "node",
+  "postCreateCommand": "uv run --no-sync /workspace/.devcontainer/post_install.py",
   "mounts": [
     "source=commandhistory,target=/commandhistory,type=volume",
     "source=claude-code-config,target=/home/node/.claude,type=volume",
@@ -48,8 +49,7 @@
   "containerEnv": {
     "NODE_OPTIONS": "--max-old-space-size=4096",
     "CLAUDE_CONFIG_DIR": "/home/node/.claude",
-    "CODEX_HOME": "/home/node/.codex",
-    "POWERLEVEL9K_DISABLE_GITSTATUS": "true"
+    "CODEX_HOME": "/home/node/.codex"
   },
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
   "workspaceFolder": "/workspace"

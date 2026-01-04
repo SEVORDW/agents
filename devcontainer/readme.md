@@ -1,60 +1,27 @@
-# devcontainer template
+# autonomous coding sandbox
 
 a devcontainer for running claude code and codex in yolo mode.
 
-based on anthropic's claude code devcontainer, modified to install codex and tmux, enable passwordless sudo, and remove firewall restrictions.
+based on anthropic's claude code devcontainer.
 
-## use
+## requirements
 
-copy the contents to `.devcontainer/` in your repo.
+- docker (or [orbstack](https://orbstack.dev/))
+- devcontainer cli (`npm install -g @devcontainers/cli`)
 
-```sh
-cp -r devcontainer path/to/repo/.devcontainer
-```
+## quickstart
 
-### vscode
+install `./devcontainer/install.sh self-install`
 
-open in vscode and run "reopen in container".
+run `devc <repo>` or `devc .` inside project folder.
 
-```sh
-claude --dangerously-skip-permissions
-codex --yolo
-```
+you're now in tmux with claude and codex ready to go, with permissions preconfigured.
 
-### cli
+to use with vscode, run `devc install <repo>` and choose "reopen in container" in the editor.
+the built in terminal would login inside the container.
 
-you can also run devcontainers from the terminal using the [devcontainer cli](https://github.com/devcontainers/cli).
+## notes
 
-```sh
-npm install -g @devcontainers/cli
-devcontainer up --workspace-folder .
-devcontainer exec --workspace-folder . tmux new -s agent
-# inside:
-claude --dangerously-skip-permissions
-codex --yolo
-# reattach with:
-devcontainer exec --workspace-folder . tmux attach -t agent
-```
-
-auth is persisted across rebuilds — `~/.codex/` and `~/.claude/` are mounted as docker volumes.
-
-## set yolo as default
-
-since the config directories persist, you can set yolo mode as the default so you don't need to pass flags every time.
-
-for claude code, add to `~/.claude/settings.json`:
-
-```json
-{
-  "permissions": {
-    "defaultMode": "bypassPermissions"
-  }
-}
-```
-
-for codex, add to `~/.codex/config.toml`:
-
-```toml
-approval_policy = "never"
-sandbox_mode = "danger-full-access"
-```
+- **overwrites `.devcontainer/`** on every run
+- default shell is fish, zsh available for agents
+- auth and history persist across rebuilds via docker volumes
