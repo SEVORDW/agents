@@ -18,7 +18,7 @@ open in vscode and run "reopen in container".
 
 ```sh
 claude --dangerously-skip-permissions
-codex --yolo --search
+codex --yolo
 ```
 
 ### cli
@@ -31,7 +31,7 @@ devcontainer up --workspace-folder .
 devcontainer exec --workspace-folder . tmux new -s agent
 # inside:
 claude --dangerously-skip-permissions
-codex --yolo --search
+codex --yolo
 # reattach with:
 devcontainer exec --workspace-folder . tmux attach -t agent
 ```
