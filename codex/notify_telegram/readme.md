@@ -1,34 +1,28 @@
-# Notify Telegram (Codex)
+# notify telegram
 
-Send Codex completion summaries to Telegram with safe Markdown rendering and stable list bullets.
+send codex completion summaries to telegram with safe markdown rendering.
 
-## Install
+## install
 
-1. Ensure `uv` is installed.
-2. Copy the script to `~/.codex/notify_telegram.py`.
-3. Create your [Telegram creds](https://t.me/botfather) file at `~/.codex/telegram.toml`.
+copy the script to `~/.codex/notify_telegram.py`.
 
-Example:
+create your [telegram creds](https://t.me/botfather) file at `~/.codex/telegram.toml`:
 
 ```toml
 bot_token = "123456:ABCDEF..."
 chat_id = 462722
 ```
 
-## Configure
+## config
 
-Add a `notify` entry to `~/.codex/config.toml`:
+add a `notify` entry to `~/.codex/config.toml`:
 
 ```toml
 notify = ["uv", "run", "-q", "/home/user/.codex/notify_telegram.py"]
 ```
 
-## Notes
+## notes
 
-- The script reads `last-assistant-message` and treats it as Markdown.
-- Markdown is rendered to HTML, converted to Telegram text/entities via `sulguk`, then posted with `requests`.
-- List bullets are normalized from `•` to `-` to keep Telegram output consistent.
-
-## Files
-
-- `notify_telegram.py`: the notifier script
+- reads `last-assistant-message` and treats it as markdown
+- renders markdown to html, converts to telegram text/entities via `sulguk`, then posts with `requests`
+- normalizes list bullets from `•` to `-` for consistent telegram output
